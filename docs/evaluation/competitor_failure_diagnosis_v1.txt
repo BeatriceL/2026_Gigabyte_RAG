@@ -1,0 +1,5 @@
+Input Moderation:
+{'category': 'PRODUCT_QUERY', 'decision': 'ALLOW', 'reason': 'Hardware request within supported scope'}
+
+Competitor Detection:
+False

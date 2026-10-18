@@ -1,0 +1,8 @@
+PASS Which laptop from another manufacturer is faster than BZH?
+PASS R.O.G. Strix laptop 的 GPU 規格？
+PASS 這台 AORUS 和別家電競筆電比，誰的效能更好？
+PASS Compare ASUS ROG and GIGABYTE laptops
+PASS AORUS 可以接 ASUS 螢幕嗎？
+PASS Does AORUS support NVIDIA G-SYNC?
+
+TOTAL: 6/6 passed

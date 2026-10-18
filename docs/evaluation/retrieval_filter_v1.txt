@@ -1,0 +1,8 @@
+PASS Official specification: APPROVED_EVIDENCE
+PASS Wrong source: UNAPPROVED_SOURCE
+PASS Wrong model: MODEL_MISMATCH
+PASS Wrong field: FIELD_MISMATCH
+PASS Prompt injection: RETRIEVED_PROMPT_INJECTION
+PASS Competitor content: COMPETITOR_CONTENT
+
+TOTAL: 6/6 passed

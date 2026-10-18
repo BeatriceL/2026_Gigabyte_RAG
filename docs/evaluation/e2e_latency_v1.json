@@ -1,0 +1,42 @@
+{
+  "question": "AORUS MASTER 16 BZH 的顯示卡是什麼？",
+  "environment": "MacBook M2 Pro, 32GB RAM",
+  "metric": "End-to-end client process wall time (ms)",
+  "warmup_runs": 1,
+  "measured_runs": 5,
+  "mean_ms": 826.78,
+  "median_ms": 826.68,
+  "max_ms": 838.32,
+  "results": [
+    {
+      "latency_ms": 819.06,
+      "success": true,
+      "stdout": "Input Moderation: ALLOW PRODUCT_QUERY\nRetrieval Filtering: 1 approved, 16 rejected\nGeneration Guard: ALLOW Approved 1 evidence chunks\nOutput Moderation: ALLOW OUTPUT_CHECK\n\nLLM Answer:\n\nAORUS MASTER 16 BZH 的顯示卡是 NVIDIA® GeForce RTX™ 5090 Laptop GPU 24GB GDDR7 175W Maximum Graphics Power with Dynamic Boost* AI Boost : 1797 MHz (1597 MHz Boost Clock + 200 MHz OC)* *May vary by scenario。\n\n\nRetrieved evidence:\nBZH_002 顯示晶片\n",
+      "stderr": ""
+    },
+    {
+      "latency_ms": 828.29,
+      "success": true,
+      "stdout": "Input Moderation: ALLOW PRODUCT_QUERY\nRetrieval Filtering: 1 approved, 16 rejected\nGeneration Guard: ALLOW Approved 1 evidence chunks\nOutput Moderation: ALLOW OUTPUT_CHECK\n\nLLM Answer:\n\nAORUS MASTER 16 BZH 的顯示卡是 NVIDIA® GeForce RTX™ 5090 Laptop GPU 24GB GDDR7 175W Maximum Graphics Power with Dynamic Boost* AI Boost : 1797 MHz (1597 MHz Boost Clock + 200 MHz OC)* *May vary by scenario。\n\n\nRetrieved evidence:\nBZH_002 顯示晶片\n",
+      "stderr": ""
+    },
+    {
+      "latency_ms": 838.32,
+      "success": true,
+      "stdout": "Input Moderation: ALLOW PRODUCT_QUERY\nRetrieval Filtering: 1 approved, 16 rejected\nGeneration Guard: ALLOW Approved 1 evidence chunks\nOutput Moderation: ALLOW OUTPUT_CHECK\n\nLLM Answer:\n\nAORUS MASTER 16 BZH 的顯示卡是 NVIDIA® GeForce RTX™ 5090 Laptop GPU 24GB GDDR7 175W Maximum Graphics Power with Dynamic Boost* AI Boost : 1797 MHz (1597 MHz Boost Clock + 200 MHz OC)* *May vary by scenario。\n\n\nRetrieved evidence:\nBZH_002 顯示晶片\n",
+      "stderr": ""
+    },
+    {
+      "latency_ms": 826.68,
+      "success": true,
+      "stdout": "Input Moderation: ALLOW PRODUCT_QUERY\nRetrieval Filtering: 1 approved, 16 rejected\nGeneration Guard: ALLOW Approved 1 evidence chunks\nOutput Moderation: ALLOW OUTPUT_CHECK\n\nLLM Answer:\n\nAORUS MASTER 16 BZH 的顯示卡是 NVIDIA® GeForce RTX™ 5090 Laptop GPU 24GB GDDR7 175W Maximum Graphics Power with Dynamic Boost* AI Boost : 1797 MHz (1597 MHz Boost Clock + 200 MHz OC)* *May vary by scenario。\n\n\nRetrieved evidence:\nBZH_002 顯示晶片\n",
+      "stderr": ""
+    },
+    {
+      "latency_ms": 821.55,
+      "success": true,
+      "stdout": "Input Moderation: ALLOW PRODUCT_QUERY\nRetrieval Filtering: 1 approved, 16 rejected\nGeneration Guard: ALLOW Approved 1 evidence chunks\nOutput Moderation: ALLOW OUTPUT_CHECK\n\nLLM Answer:\n\nAORUS MASTER 16 BZH 的顯示卡是 NVIDIA® GeForce RTX™ 5090 Laptop GPU 24GB GDDR7 175W Maximum Graphics Power with Dynamic Boost* AI Boost : 1797 MHz (1597 MHz Boost Clock + 200 MHz OC)* *May vary by scenario。\n\n\nRetrieved evidence:\nBZH_002 顯示晶片\n",
+      "stderr": ""
+    }
+  ]
+}

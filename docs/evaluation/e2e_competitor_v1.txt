@@ -1,0 +1,12 @@
+Input Moderation: ALLOW PRODUCT_QUERY
+Retrieval Filtering: 1 approved, 16 rejected
+Generation Guard: ALLOW Approved 1 evidence chunks
+Output Moderation: ALLOW OUTPUT_CHECK
+
+LLM Answer:
+
+AORUS MASTER 16 BZH 的 GPU 為 NVIDIA® GeForce RTX™ 5090 Laptop GPU 24GB GDDR7，其性能在遊戲筆電市場中屬於較為強大的水平。然而，具體比較需根據實際測試結果來判斷，無法從現有資料中得出明確結論。
+
+
+Retrieved evidence:
+BZH_002 顯示晶片

@@ -1,0 +1,38 @@
+
+[Normal specification] PASS
+Expected: ALLOW
+Actual: ALLOW
+Category: OUTPUT_CHECK
+Reason: Passed baseline output checks
+
+[Original market claim] PASS
+Expected: REFUSE
+Actual: REFUSE
+Category: UNGROUNDED_OUTPUT
+Reason: Unsupported comparative or market-level claim
+
+[Chinese comparative claim] PASS
+Expected: REFUSE
+Actual: REFUSE
+Category: UNGROUNDED_OUTPUT
+Reason: Unsupported comparative or market-level claim
+
+[English top-tier claim] FAIL
+Expected: REFUSE
+Actual: ALLOW
+Category: OUTPUT_CHECK
+Reason: Passed baseline output checks
+
+[English comparative claim] FAIL
+Expected: REFUSE
+Actual: ALLOW
+Category: OUTPUT_CHECK
+Reason: Passed baseline output checks
+
+[Invented numerical specification] PASS
+Expected: REFUSE
+Actual: REFUSE
+Category: UNGROUNDED_OUTPUT
+Reason: Unsupported numerical facts: 32gb
+
+TOTAL: 4/6 passed

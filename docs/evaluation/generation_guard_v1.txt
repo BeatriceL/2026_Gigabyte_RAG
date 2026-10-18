@@ -1,0 +1,6 @@
+PASS Valid evidence: ALLOW (Approved 1 evidence chunks)
+PASS Missing evidence: REFUSE (INSUFFICIENT_EVIDENCE)
+PASS Wrong model: REFUSE (INVALID_EVIDENCE:MODEL_MISMATCH)
+PASS Injected evidence: REFUSE (INVALID_EVIDENCE:RETRIEVED_PROMPT_INJECTION)
+
+TOTAL: 4/4 passed

@@ -1,0 +1,8 @@
+[Normal specification] PASS
+[Original market claim] PASS
+[Chinese comparative claim] PASS
+[English top-tier claim] PASS
+[English comparative claim] PASS
+[Invented numerical specification] PASS
+
+TOTAL: 6/6 passed

@@ -1,0 +1,30 @@
+
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Large model files
+models/
+
+# Runtime audit logs
+logs/
+
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Official website HTML snapshot
+data/raw/*.html
+
+# Local-only evaluation record
+docs/evaluation/moderation_holdout_v4.txt

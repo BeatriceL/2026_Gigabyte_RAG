@@ -1,0 +1,12 @@
+Input Moderation: ALLOW PRODUCT_QUERY
+Retrieval Filtering: 1 approved, 16 rejected
+Generation Guard: ALLOW Approved 1 evidence chunks
+Output Moderation: ALLOW OUTPUT_CHECK
+
+LLM Answer:
+
+AORUS MASTER 16 BZH 的顯示卡是 NVIDIA® GeForce RTX™ 5090 Laptop GPU 24GB GDDR7 175W Maximum Graphics Power with Dynamic Boost* AI Boost : 1797 MHz (1597 MHz Boost Clock + 200 MHz OC)* *May vary by scenario。
+
+
+Retrieved evidence:
+BZH_002 顯示晶片

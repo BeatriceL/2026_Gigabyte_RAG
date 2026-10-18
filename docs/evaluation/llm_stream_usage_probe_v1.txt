@@ -1,0 +1,5 @@
+First Content Latency (ms): 130.24
+Total Latency (ms): 335.56
+Content Chunks: 24
+Usage: {"completion_tokens": 29, "prompt_tokens": 39, "total_tokens": 68, "prompt_tokens_details": {"cached_tokens": 1}}
+Timings: {"cache_n": 1, "prompt_n": 38, "prompt_ms": 78.548, "prompt_per_token_ms": 2.0670526315789473, "prompt_per_second": 483.7806182207058, "predicted_n": 29, "predicted_ms": 242.64, "predicted_per_token_ms": 8.665714285714285, "predicted_per_second": 115.39729640619848}

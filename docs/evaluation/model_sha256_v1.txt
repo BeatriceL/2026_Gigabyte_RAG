@@ -1,0 +1,2 @@
+d2387ca2dbfee2ffabce7120d3770dadca0b293052bc2f0e138fdc940d9bc7b5  models/Qwen3-1.7B-Q4_K_M.gguf
+06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439  models/Qwen3-Embedding-0.6B-Q8_0.gguf

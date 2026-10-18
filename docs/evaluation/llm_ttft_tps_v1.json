@@ -1,0 +1,150 @@
+{
+  "environment": "MacBook M2 Pro, 32GB unified memory",
+  "model": "Qwen3-1.7B-Q4_K_M GGUF",
+  "measurement": "Direct llama.cpp chat completions API",
+  "note": "First content latency is a client-side TTFT proxy. TPS comes from llama.cpp predicted_per_second. This is not full RAG latency.",
+  "warmup_runs": 1,
+  "measured_runs": 5,
+  "warmup": {
+    "first_content_latency_ms": 67.23,
+    "total_latency_ms": 278.18,
+    "completion_tokens": 29,
+    "prompt_tokens": 39,
+    "cached_prompt_tokens": 38,
+    "content_chunks": 24,
+    "generation_tps": 113.92,
+    "server_timings": {
+      "cache_n": 38,
+      "prompt_n": 1,
+      "prompt_ms": 23.641,
+      "prompt_per_token_ms": 23.641,
+      "prompt_per_second": 42.299395118649805,
+      "predicted_n": 29,
+      "predicted_ms": 245.796,
+      "predicted_per_token_ms": 8.778428571428572,
+      "predicted_per_second": 113.91560481049326
+    }
+  },
+  "results": [
+    {
+      "first_content_latency_ms": 48.17,
+      "total_latency_ms": 252.78,
+      "completion_tokens": 29,
+      "prompt_tokens": 39,
+      "cached_prompt_tokens": 38,
+      "content_chunks": 24,
+      "generation_tps": 117.07,
+      "server_timings": {
+        "cache_n": 38,
+        "prompt_n": 1,
+        "prompt_ms": 9.22,
+        "prompt_per_token_ms": 9.22,
+        "prompt_per_second": 108.45986984815617,
+        "predicted_n": 29,
+        "predicted_ms": 239.174,
+        "predicted_per_token_ms": 8.541928571428572,
+        "predicted_per_second": 117.06958114176288
+      }
+    },
+    {
+      "first_content_latency_ms": 47.11,
+      "total_latency_ms": 251.83,
+      "completion_tokens": 29,
+      "prompt_tokens": 39,
+      "cached_prompt_tokens": 38,
+      "content_chunks": 24,
+      "generation_tps": 117.24,
+      "server_timings": {
+        "cache_n": 38,
+        "prompt_n": 1,
+        "prompt_ms": 9.028,
+        "prompt_per_token_ms": 9.028,
+        "prompt_per_second": 110.76650420912715,
+        "predicted_n": 29,
+        "predicted_ms": 238.825,
+        "predicted_per_token_ms": 8.529464285714285,
+        "predicted_per_second": 117.24065738511462
+      }
+    },
+    {
+      "first_content_latency_ms": 47.31,
+      "total_latency_ms": 251.3,
+      "completion_tokens": 29,
+      "prompt_tokens": 39,
+      "cached_prompt_tokens": 38,
+      "content_chunks": 24,
+      "generation_tps": 117.72,
+      "server_timings": {
+        "cache_n": 38,
+        "prompt_n": 1,
+        "prompt_ms": 9.314,
+        "prompt_per_token_ms": 9.314,
+        "prompt_per_second": 107.36525660296329,
+        "predicted_n": 29,
+        "predicted_ms": 237.861,
+        "predicted_per_token_ms": 8.495035714285715,
+        "predicted_per_second": 117.71580881270995
+      }
+    },
+    {
+      "first_content_latency_ms": 46.98,
+      "total_latency_ms": 251.06,
+      "completion_tokens": 29,
+      "prompt_tokens": 39,
+      "cached_prompt_tokens": 38,
+      "content_chunks": 24,
+      "generation_tps": 117.64,
+      "server_timings": {
+        "cache_n": 38,
+        "prompt_n": 1,
+        "prompt_ms": 9.076,
+        "prompt_per_token_ms": 9.076,
+        "prompt_per_second": 110.18069634200087,
+        "predicted_n": 29,
+        "predicted_ms": 238.007,
+        "predicted_per_token_ms": 8.50025,
+        "predicted_per_second": 117.64359871768478
+      }
+    },
+    {
+      "first_content_latency_ms": 47.23,
+      "total_latency_ms": 251.34,
+      "completion_tokens": 29,
+      "prompt_tokens": 39,
+      "cached_prompt_tokens": 38,
+      "content_chunks": 24,
+      "generation_tps": 117.59,
+      "server_timings": {
+        "cache_n": 38,
+        "prompt_n": 1,
+        "prompt_ms": 9.163,
+        "prompt_per_token_ms": 9.163,
+        "prompt_per_second": 109.13456291607552,
+        "predicted_n": 29,
+        "predicted_ms": 238.114,
+        "predicted_per_token_ms": 8.504071428571429,
+        "predicted_per_second": 117.59073385017261
+      }
+    }
+  ],
+  "summary": {
+    "first_content_latency_ms": {
+      "mean": 47.36,
+      "median": 47.23,
+      "min": 46.98,
+      "max": 48.17
+    },
+    "generation_tps": {
+      "mean": 117.45,
+      "median": 117.59,
+      "min": 117.07,
+      "max": 117.72
+    },
+    "total_latency_ms": {
+      "mean": 251.66,
+      "median": 251.34,
+      "min": 251.06,
+      "max": 252.78
+    }
+  }
+}

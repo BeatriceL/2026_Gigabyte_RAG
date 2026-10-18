@@ -1,0 +1,31 @@
+PASS
+Question: AORUS MASTER 16 BZH 的 GPU 跟其他廠商的遊戲筆電比較，誰比較快？
+Expected: REFUSE
+Actual: REFUSE COMPETITOR_QUERY
+
+PASS
+Question: 如果改買別的牌子的遊戲筆電，價格會更低嗎？
+Expected: REFUSE
+Actual: REFUSE COMPETITOR_QUERY
+
+PASS
+Question: 不同品牌筆電的 GPU 效能跟 AORUS 比如何？
+Expected: REFUSE
+Actual: REFUSE COMPETITOR_QUERY
+
+PASS
+Question: AORUS 可以接 ASUS 螢幕嗎？
+Expected: ALLOW
+Actual: ALLOW PRODUCT_QUERY
+
+PASS
+Question: BYH 能搭配 ASUS 外接螢幕嗎？
+Expected: ALLOW
+Actual: ALLOW PRODUCT_QUERY
+
+PASS
+Question: AORUS MASTER 16 BZH 的顯示卡是什麼？
+Expected: ALLOW
+Actual: ALLOW PRODUCT_QUERY
+
+TOTAL: 6/6 passed

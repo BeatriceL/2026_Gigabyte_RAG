@@ -1,0 +1,2 @@
+-rw-r--r--  1 ys  staff   1.2G Oct 15 18:49 models/Qwen3-1.7B-Q4_K_M.gguf
+-rw-r--r--  1 ys  staff   610M Oct 16 09:08 models/Qwen3-Embedding-0.6B-Q8_0.gguf

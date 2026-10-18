@@ -1,0 +1,7 @@
+PASS Grounded specification: OUTPUT_CHECK
+PASS Invented specification: UNGROUNDED_OUTPUT
+PASS Competitor content: COMPETITOR_CONTENT
+PASS Prompt injection: PROMPT_INJECTION
+PASS Empty answer: EMPTY_OUTPUT
+
+TOTAL: 5/5 passed

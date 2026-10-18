@@ -1,0 +1,8 @@
+Input Moderation: ALLOW PRODUCT_QUERY
+
+LLM Answer:
+
+AORUS MASTER 16 BZH 的顯示晶片為 NVIDIA® GeForce RTX™ 5090 Laptop GPU 24GB GDDR7 175W Maximum Graphics Power with Dynamic Boost* AI Boost：1797 MHz（1597 MHz Boost Clock + 200 MHz OC）*，* 可根據情境有所變化。
+
+Retrieved evidence:
+BZH_002 顯示晶片
