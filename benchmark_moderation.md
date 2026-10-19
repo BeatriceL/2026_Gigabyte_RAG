@@ -157,6 +157,45 @@ Reproduce the current input moderation benchmark:
 
     uv run python scripts/benchmark_input_moderation.py
 
-The benchmark output file uses exclusive creation to
-prevent accidental overwriting of existing results.
+By default, the benchmark prints results without saving a JSON file.
+Use `--save` to create a new timestamped JSON result without
+overwriting previous records.
 
+## 9. Follow-up Adversarial Regression
+
+Additional Chinese, English, and mixed-context test cases
+were used to investigate input moderation weaknesses.
+
+| Test set | Before fixes | After fixes |
+|---|---:|---:|
+| Holdout regression (17 cases) | 13/17 (76.5%) | 17/17 (100%) |
+| Adversarial regression (10 cases) | 6/10 (60.0%) | 10/10 (100%) |
+
+### Failure Analysis and Fixes
+
+- **Quoted instructions:** A legitimate keyboard-typing question
+  containing a quoted instruction was initially refused.
+  Quoted text handling was introduced to reduce false refusals.
+- **Unsafe quoted-text bypass:** A subsequent adversarial test
+  demonstrated that an execution request appended outside
+  the quoted text could be incorrectly allowed. An additional
+  execution-intent check was introduced.
+- **Multilingual coverage:** English content-generation verbs
+  and Chinese/English role-spoofing patterns were expanded
+  to improve detection of safety and instruction-override requests.
+- **English false refusal:** Keyboard questions using "typing"
+  were initially misclassified and subsequently addressed.
+
+### Interpretation
+
+These test cases were used to diagnose and modify the rules.
+Therefore, the post-fix scores are regression results, not
+independent estimates of performance on unseen attacks.
+
+The initial 6/10 adversarial result included one unsafe
+ALLOW decision on an instruction-override request.
+The corrected case subsequently returned REFUSE.
+
+Rule-based input moderation remains vulnerable to unseen
+paraphrases, context-dependent intent, and novel prompt
+injection strategies. Further independent testing is required.

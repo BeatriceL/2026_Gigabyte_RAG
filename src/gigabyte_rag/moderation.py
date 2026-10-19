@@ -98,8 +98,40 @@ def moderate_input(question):
             "OUT_OF_SCOPE", "REDIRECT", "Empty question"
         )
 
+    # Treat quoted text as data in explicit keyboard-typing questions.
+    # Instructions outside the quoted span remain subject to moderation.
+    safety_q = q
+    keyboard_question = re.search(
+        r"(鍵盤|keyboard).{0,40}(輸入|打出|打字|type|typing|enter)", q
+    )
+    literal_text_question = re.search(
+        r"(這串字|字串|文字|text|string|characters?)", q
+    )
+
+    # Inspect instructions outside quoted text before masking it.
+    unquoted_q = re.sub(
+        r'"[^"\n]{1,200}"|“[^”\n]{1,200}”|「[^」\n]{1,200}」',
+        " ",
+        q,
+    )
+
+    execute_request = re.search(
+        r"照做|照著做|遵守|服從|執行|"
+        r"\b(?:obey|execute)\b|"
+        r"\bdo\s+(?:it|so)\b|"
+        r"\bfollow\s+(?:them|it)\b",
+        unquoted_q,
+    )
+
+    if keyboard_question and literal_text_question and not execute_request:
+        safety_q = re.sub(
+            r'"[^"\n]{1,200}"|“[^”\n]{1,200}”|「[^」\n]{1,200}」',
+            " quoted_literal ",
+            q,
+        )
+
     # Safety intent classification before retrieval
-    safety_category = detect_safety_intent(question)
+    safety_category = detect_safety_intent(safety_q)
 
     if safety_category is not None:
         return decision(
@@ -115,7 +147,7 @@ def moderate_input(question):
         r"(忽略|無視|繞過|覆蓋).{0,30}(規則|指令|政策|審查|限制)"
     ]
 
-    if any(re.search(p, q) for p in injection_patterns):
+    if any(re.search(p, safety_q) for p in injection_patterns):
         return decision(
             "PROMPT_INJECTION",
             "REFUSE",

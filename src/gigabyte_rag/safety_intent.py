@@ -8,6 +8,12 @@ def normalize(text):
 
 
 INJECTION_PATTERNS = [
+    # English role spoofing combined with disabling safeguards
+    r"\b(?:pretend|treat|regard|interpret|act as)\b.{0,90}\b(?:system|developer)\s+(?:directive|message|instructions?|prompt)\b.{0,100}\b(?:turn\s+off|disable|deactivate|bypass|override|ignore|remove)\b.{0,50}\b(?:safety|filters?|polic(?:y|ies)|restrictions?|rules?)\b",
+    # Chinese role spoofing combined with disabling safeguards
+    r"(?:視為|當作|假裝|扮演).{0,40}(?:系統|開發者).{0,12}(?:訊息|消息|指令|命令).{0,50}(?:停用|關閉|解除|取消|繞過|忽略).{0,30}(?:過濾器|安全|審查|限制|規則|政策)",
+    r"\b(?:treat|regard|interpret|pretend)\b.{0,70}\b(?:developer|system)\s+(?:message|instructions?)\b.{0,70}\b(?:disable|bypass|override|ignore)\b",
+    r"(?:系統|開發者).{0,20}(?:最高優先|最高權限).{0,20}(?:指令|命令).{0,40}(?:公開|顯示|揭露|輸出|覆蓋|忽略)",
     r"(ignore|disregard|forget|override|bypass).{0,50}(instructions|rules|constraints|policy)",
     r"(reveal|show|print|expose).{0,50}(system prompt|hidden settings|system instructions)",
     r"(忽略|無視|忘記|繞過|覆蓋).{0,30}(規則|指令|限制|政策)",
@@ -17,7 +23,7 @@ INJECTION_PATTERNS = [
 
 CONTENT_REQUEST = (
     r"幫我寫|寫一段|生成|創作|製作|"
-    r"\b(write|create|generate|draft)\b"
+    r"\b(write|create|generate|draft|compose)\b"
 )
 
 HARMFUL_INTENT = (
