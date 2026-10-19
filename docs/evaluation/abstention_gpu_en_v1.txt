@@ -1,0 +1,12 @@
+Input Moderation: ALLOW PRODUCT_QUERY
+Retrieval Filtering: 1 approved, 16 rejected
+Generation Guard: ALLOW Approved 1 evidence chunks
+Output Moderation: ALLOW OUTPUT_CHECK
+
+LLM Answer:
+
+The evidence provided does not include any information about the 3DMark Time Spy score. Therefore, it is not possible to determine the exact score based on the available data.
+
+
+Retrieved evidence:
+BYH_019 顯示晶片

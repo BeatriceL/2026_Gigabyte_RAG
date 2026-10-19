@@ -313,3 +313,11 @@ Run:
 Saved evaluation output:
 
     docs/evaluation/retrieval_recall_v1.txt
+
+## 12. Manual Answer Quality Spot Checks
+
+- Fact grounding: 2/2 manually reviewed GPU answers were supported by official evidence BZH_002 and BYH_019.
+- Abstention: 2/2 reviewed questions correctly avoided fabricating 3DMark Time Spy and Cinebench R23 scores.
+- Language: one English question initially received a Chinese answer; after a prompt change, the repeated answer was in English.
+- Scope: these are development-time manual checks, not independent estimates of overall answer accuracy or abstention rate.
+- Evidence: docs/evaluation/abstention_cpu_zh_v1.txt and docs/evaluation/abstention_gpu_en_v1.txt.

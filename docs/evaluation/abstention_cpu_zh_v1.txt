@@ -1,0 +1,12 @@
+Input Moderation: ALLOW PRODUCT_QUERY
+Retrieval Filtering: 1 approved, 16 rejected
+Generation Guard: ALLOW Approved 1 evidence chunks
+Output Moderation: ALLOW OUTPUT_CHECK
+
+LLM Answer:
+
+根據核准的官方規格資料，AORUS MASTER 16 AM6H BZH 的 CPU 是 Intel® Core™ Ultra 9 Processor 275HX，其在 Cinebench R23 多核心測試中的得分無法確認，因為證據中未提供具體的測試結果。
+
+
+Retrieved evidence:
+BZH_001 中央處理器
