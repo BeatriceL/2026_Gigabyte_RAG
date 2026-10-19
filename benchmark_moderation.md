@@ -199,3 +199,52 @@ The corrected case subsequently returned REFUSE.
 Rule-based input moderation remains vulnerable to unseen
 paraphrases, context-dependent intent, and novel prompt
 injection strategies. Further independent testing is required.
+
+## 10. Fixed-Input Guard Overhead Benchmark
+
+A controlled microbenchmark measured four moderation
+functions using the same BZH GPU question, approved
+evidence BZH_002, and fixed reference answer.
+
+The experiment used 5 warm-up iterations and
+100 measured iterations, alternating the execution
+order of Guard ON and Guard OFF (pass-through).
+
+| Metric | Mean | Median | P95 |
+|---|---:|---:|---:|
+| Guard ON | 0.29343 ms | 0.29237 ms | 0.29633 ms |
+| Guard OFF (pass-through) | 0.00022 ms | 0.00021 ms | 0.00025 ms |
+
+Mean difference: 0.29321 ms.
+
+### Guard ON Latency by Stage
+
+| Stage | Mean |
+|---|---:|
+| Input Moderation | 0.03644 ms |
+| Retrieval Filtering | 0.09811 ms |
+| Generation Guard | 0.09739 ms |
+| Output Moderation | 0.06148 ms |
+
+### Scope and Limitations
+
+This benchmark measures guard-function computation only.
+It excludes embedding, retrieval, LLM inference, audit
+logging, and external I/O.
+
+Guard OFF uses pre-approved pass-through values.
+It does not represent a full unmoderated RAG pipeline.
+
+Therefore, these measurements must not be interpreted
+as end-to-end latency improvement or slowdown.
+
+Reproduce with:
+
+    uv run python scripts/benchmark_guard_overhead.py
+
+Save a timestamped result with:
+
+    uv run python scripts/benchmark_guard_overhead.py --save
+
+Saved result:
+docs/evaluation/guard_microbenchmark_20261019T144127263111Z.json

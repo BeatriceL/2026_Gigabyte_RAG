@@ -1,0 +1,48 @@
+{
+  "benchmark": "fixed-input guard function overhead",
+  "warmup": 5,
+  "measured_runs": 100,
+  "question": "AORUS MASTER 16 AM6H BZH 的 GPU 規格是什麼？",
+  "evidence_ids": [
+    "BZH_002"
+  ],
+  "excludes": [
+    "embedding",
+    "retrieval",
+    "LLM",
+    "audit",
+    "I/O"
+  ],
+  "guard_on_total": {
+    "mean_ms": 0.29343,
+    "median_ms": 0.29237,
+    "p95_ms": 0.29633
+  },
+  "guard_off_passthrough": {
+    "mean_ms": 0.00022,
+    "median_ms": 0.00021,
+    "p95_ms": 0.00025
+  },
+  "guard_on_stages": {
+    "INPUT": {
+      "mean_ms": 0.03644,
+      "median_ms": 0.03642,
+      "p95_ms": 0.03687
+    },
+    "RETRIEVAL": {
+      "mean_ms": 0.09811,
+      "median_ms": 0.09746,
+      "p95_ms": 0.09788
+    },
+    "GENERATION": {
+      "mean_ms": 0.09739,
+      "median_ms": 0.09725,
+      "p95_ms": 0.09829
+    },
+    "OUTPUT": {
+      "mean_ms": 0.06148,
+      "median_ms": 0.06133,
+      "p95_ms": 0.06208
+    }
+  }
+}
