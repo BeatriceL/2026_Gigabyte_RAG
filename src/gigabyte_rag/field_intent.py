@@ -31,7 +31,7 @@ def detect_fields(query):
             pattern = re.escape(alias)
 
             if alias.isascii():
-                pattern = rf"(?<!\w){pattern}(?!\w)"
+                pattern = rf"(?<![A-Za-z0-9]){pattern}(?![A-Za-z0-9])"
 
             if re.search(pattern, query, re.IGNORECASE):
                 matched.append(field)

@@ -248,3 +248,68 @@ Save a timestamped result with:
 
 Saved result:
 docs/evaluation/guard_microbenchmark_20261019T144127263111Z.json
+## 11. Retrieval Recall@K Evaluation
+
+We evaluated Semantic Retrieval against field-aware
+Hybrid Retrieval using 30 controlled product-specification
+queries.
+
+The evaluation covered three AORUS MASTER 16 AM6H
+variants (BZH, BYH, BXH), five supported specification
+fields, and Chinese and English queries.
+
+Each query had one ground-truth chunk identified by
+its model code and specification category.
+
+### Results
+
+| Metric | Semantic | Hybrid |
+|---|---:|---:|
+| Recall@1 | 12/30 (40.0%) | 26/30 (86.7%) |
+| Recall@3 | 21/30 (70.0%) | 30/30 (100.0%) |
+| Recall@5 | 21/30 (70.0%) | 30/30 (100.0%) |
+
+Hybrid Retrieval improved Recall@1 by 46.7
+percentage points on this controlled evaluation set.
+
+The semantic baseline missed the correct chunk within
+Top-5 for nine queries, primarily involving GPU and SSD
+specifications.
+
+Hybrid Retrieval combines semantic similarity with
+a 0.10 field-matching bonus.
+
+### Failure Analysis
+
+Evaluation exposed an additional multilingual
+field-detection issue: the original regular expression
+used Python's Unicode-aware word boundary logic and
+failed to detect "SSD" immediately followed by Chinese
+characters.
+
+The boundary rule was revised to allow mixed Chinese
+and English specification queries.
+
+### Limitations
+
+Queries were designed using known product variants,
+supported field aliases, and indexed specification
+categories. These are development-time evaluation cases,
+not an independent user-query test set.
+
+The current field-intent detector explicitly supports
+five specification categories, although the index
+contains 17 categories per product variant.
+
+These recall results do not measure generated-answer
+accuracy or end-to-end RAG latency.
+
+### Reproducibility
+
+Run:
+
+    uv run python scripts/eval_retrieval.py
+
+Saved evaluation output:
+
+    docs/evaluation/retrieval_recall_v1.txt
