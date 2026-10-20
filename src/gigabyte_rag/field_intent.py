@@ -18,10 +18,26 @@ FIELD_ALIASES = {
         "記憶體", "RAM", "memory", "DDR5"
     ],
     "儲存裝置": [
-        "儲存空間", "硬碟", "SSD", "storage"
+        "儲存裝置", "儲存空間", "硬碟", "SSD", "storage"
     ]
 }
 
+
+
+FIELD_ALIASES.update({
+    "作業系統": ["作業系統", "Windows", "OS", "operating system"],
+    "鍵盤種類": ["鍵盤", "鍵程", "keyboard", "key travel"],
+    "連接埠": ["連接埠", "連接孔", "插孔", "ports", "port", "USB", "Type-C", "HDMI", "Thunderbolt", "RJ-45"],
+    "音效": ["音效", "喇叭", "麥克風", "speaker", "audio", "microphone"],
+    "通訊": ["通訊", "網路", "Wi-Fi", "WiFi", "藍牙", "Bluetooth", "wireless", "Ethernet"],
+    "視訊鏡頭": ["視訊鏡頭", "鏡頭", "攝影機", "webcam", "camera"],
+    "安全裝置": ["安全裝置", "安全晶片", "TPM", "PTT", "security chip"],
+    "電池": ["電池", "續航", "battery"],
+    "變壓器": ["變壓器", "充電器", "電源供應器", "AC adapter", "charger"],
+    "尺寸": ["尺寸", "長寬高", "厚度", "dimensions", "thickness"],
+    "重量": ["重量", "多重", "幾公斤", "weight", "weighs"],
+    "顏色": ["顏色", "配色", "color", "colour"],
+})
 
 def detect_fields(query):
     matched = []

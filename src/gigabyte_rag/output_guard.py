@@ -71,6 +71,37 @@ def moderate_output(answer, evidence):
             "reason": "Unsupported comparative or market-level claim"
         }
 
+
+    # Reject competitor laptop specifications.
+    if re.search(
+        r"(?:ASUS|ROG|MSI|Lenovo|Legion|Dell|Alienware|Acer|Predator|Razer|華碩|微星|聯想|宏碁).{0,40}(?:筆電|筆記型電腦|laptop|notebook)",
+        answer, re.I,
+    ):
+        return {"category": "COMPETITOR_CONTENT", "decision": "REFUSE",
+                "reason": "Competitor laptop specification in answer"}
+
+    # System RAM must be supported by RAM evidence, not GPU VRAM.
+    ram_term = r"(?:系統記憶體|主記憶體|\bRAM\b|system\s+memory)"
+    claim = re.search(
+        rf"{ram_term}.{{0,30}}?\d+(?:\.\d+)?\s*(?:GB|TB)\b",
+        answer, re.I,
+    ) or re.search(
+        rf"\d+(?:\.\d+)?\s*(?:GB|TB)\s*(?:的)?\s*{ram_term}",
+        answer, re.I,
+    )
+    if claim:
+        ram_text = " ".join(
+            x.get("text", "") for x in evidence
+            if isinstance(x, dict) and x.get("category") == "記憶體"
+        )
+        stated = {normalize_fact(x) for x in NUMBER_PATTERN.findall(claim.group())
+                  if x.lower().endswith(("gb", "tb"))}
+        supported = {normalize_fact(x) for x in NUMBER_PATTERN.findall(ram_text)
+                     if x.lower().endswith(("gb", "tb"))}
+        if not stated.issubset(supported):
+            return {"category": "UNGROUNDED_OUTPUT", "decision": "REFUSE",
+                    "reason": "System RAM capacity not supported by RAM evidence"}
+
     # Check numerical facts with explicit units.
     evidence_text = " ".join(
         item.get("text", "")
@@ -78,9 +109,9 @@ def moderate_output(answer, evidence):
         if isinstance(item, dict)
     )
 
-    gpu_pat = re.compile(r"\bRTX\s*\d{4}\b", re.I)
-    in_answer = {x.replace(" ", "").upper() for x in gpu_pat.findall(answer)}
-    in_evidence = {x.replace(" ", "").upper() for x in gpu_pat.findall(evidence_text)}
+    gpu_pat = re.compile(r"\bRTX[\s™®]*\d{4}\b", re.I)
+    in_answer = {re.sub(r"[\s™®]", "", x).upper() for x in gpu_pat.findall(answer)}
+    in_evidence = {re.sub(r"[\s™®]", "", x).upper() for x in gpu_pat.findall(evidence_text)}
     if not in_answer.issubset(in_evidence):
         return {"category": "UNGROUNDED_OUTPUT", "decision": "REFUSE", "reason": "Unsupported GPU model"}
 

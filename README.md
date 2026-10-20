@@ -196,6 +196,13 @@ with 1024-dimensional embedding vectors.
 
 ## 8. Run the RAG Pipeline
 
+CLI entry point (start both llama.cpp servers first):
+
+```bash
+uv run gigabyte-rag "AORUS MASTER 16 AM6H BZH 的重量是多少？"
+uv run gigabyte-rag --stream "What GPU does the BYH model use?"
+
+
 With both servers running:
 
 ```bash
@@ -213,6 +220,13 @@ uv run python src/gigabyte_rag/generation.py \
 The current CLI prototype requires exactly one supported
 variant code and at least one recognized specification
 field to proceed with retrieval and generation.
+
+Field recognition now covers all 17 official specification
+categories for BZH, BYH, and BXH (51 indexed chunks).
+Field detection passed 17/17 checks and evidence filtering
+passed 51/51 checks. Four expanded-category RAG answers
+were manually tested. Answer quality across all 17
+categories has not yet been fully evaluated.
 
 Questions outside the supported scope may be refused
 or redirected according to the moderation policy.
