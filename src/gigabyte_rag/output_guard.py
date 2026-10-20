@@ -84,6 +84,9 @@ def moderate_output(answer, evidence):
     if not in_answer.issubset(in_evidence):
         return {"category": "UNGROUNDED_OUTPUT", "decision": "REFUSE", "reason": "Unsupported GPU model"}
 
+    if re.search(r"(?:頻率|時脈|frequency|clock speed)\s*[:：]?\s*\d+(?:\.\d+)?\s*(?:W|Wh)\b", answer, re.I):
+        return {"category": "UNGROUNDED_OUTPUT", "decision": "REFUSE", "reason": "Power unit used as frequency"}
+
     supported_facts = {
         normalize_fact(fact)
         for fact in NUMBER_PATTERN.findall(evidence_text)

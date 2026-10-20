@@ -49,10 +49,10 @@ Approved Answer
 Moderation decisions are recorded in JSONL audit logs with
 a shared request ID, category, decision, reason, and latency.
 
-Generated tokens are received through the streaming API but
-buffered until the complete answer passes output moderation.
-This prevents displaying unreviewed content, at the cost of
-user-visible token-by-token streaming.
+Default mode buffers the full answer for output moderation.
+Optional --stream mode reviews and displays completed segments.
+The complete answer is reviewed again after generation.
+Emitted text cannot be recalled; streaming is not token-by-token.
 
 ## 3. Tested Environment
 
@@ -335,8 +335,8 @@ See benchmark_moderation.md Section 13.
 - Unseen competitor paraphrases may bypass rules.
 - Normal hardware questions may be falsely refused.
 - Qualitative factual grounding remains incomplete.
-- User-visible token streaming is disabled by full-answer
-  output review.
+- Optional --stream emits reviewed segments, not individual tokens.
+- Emitted text cannot be recalled if later moderation rejects.
 - The current retrieval and generation interface is
   restricted to supported model codes and recognized fields.
 - Moderation evaluation contains small test sets.
@@ -362,3 +362,7 @@ See benchmark_moderation.md Section 13.
 
 The latter two require the embedding server on port 8081.
 See benchmark_moderation.md for results and limitations.
+
+## 16. Streaming CLI Example
+
+    uv run python src/gigabyte_rag/generation.py --stream "What GPU does the AORUS MASTER 16 BYH use?"

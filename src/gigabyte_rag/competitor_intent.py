@@ -16,6 +16,7 @@ COMPETITOR_ALIASES = {
 }
 
 INDIRECT_PATTERNS = [
+    r"其他.{0,60}筆電.{0,24}(相比|比較|更好)",
     r"another manufacturer",
     r"other laptop brands",
     r"(rival|competing|competitor)\s+(laptop|notebook)",

@@ -18,7 +18,7 @@ API = "http://127.0.0.1:8080/v1/chat/completions"
 SOURCE = "https://www.gigabyte.com/tw/Laptop/AORUS-MASTER-16-AM6H/sp"
 
 
-def answer(question):
+def answer(question, stream_output=False):
     request_id = new_request_id()
     moderation_start = time.perf_counter()
 
@@ -149,6 +149,8 @@ def answer(question):
     )
 
     generated_parts = []
+    emitted = 0
+    stream_blocked = False
 
     with urllib.request.urlopen(request, timeout=120) as response:
         for line in response:
@@ -168,6 +170,17 @@ def answer(question):
 
             if content:
                 generated_parts.append(content)
+                if stream_output and not stream_blocked:
+                    draft = "".join(generated_parts)
+                    ends = list(re.finditer(r"[。！？!?]|\.(?=\s|$)|\n", draft))
+                    cutoff = ends[-1].end() if ends else 0
+                    if cutoff > emitted:
+                        review = moderate_output(draft[:cutoff], evidence)
+                        if review["decision"] == "ALLOW":
+                            print(draft[emitted:cutoff], end="", flush=True)
+                            emitted = cutoff
+                        else:
+                            stream_blocked = True
 
     generated_answer = "".join(generated_parts)
 
@@ -176,6 +189,9 @@ def answer(question):
     output_review = moderate_output(
         generated_answer, evidence
     )
+
+    if stream_output and stream_blocked:
+        output_review = {"category": "STREAM_GUARD", "decision": "REFUSE", "reason": "Partial stream failed review"}
 
     output_latency_ms = (
         time.perf_counter() - output_start
@@ -193,6 +209,13 @@ def answer(question):
         ],
     )
 
+    if stream_output:
+        if output_review["decision"] == "ALLOW":
+            print(generated_answer[emitted:], flush=True)
+            emitted = len(generated_answer)
+        else:
+            print()
+
     print(
         "Output Moderation:",
         output_review["decision"],
@@ -203,8 +226,11 @@ def answer(question):
         print("回答未通過輸出審查，已停止顯示。")
         return
 
-    print("\nLLM Answer:\n")
-    print(generated_answer)
+    if stream_output:
+        print(generated_answer[emitted:])
+    else:
+        print("\nLLM Answer:\n")
+        print(generated_answer)
 
     print("\n\nRetrieved evidence:")
     for item in evidence:
@@ -212,10 +238,11 @@ def answer(question):
 
 
 if __name__ == "__main__":
-    question = " ".join(sys.argv[1:])
+    stream_output = "--stream" in sys.argv[1:]
+    question = " ".join(arg for arg in sys.argv[1:] if arg != "--stream")
 
     if not question:
         raise SystemExit("Please provide a question.")
 
-    answer(question)
+    answer(question, stream_output=stream_output)
 
