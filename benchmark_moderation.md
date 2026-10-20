@@ -256,7 +256,7 @@ Hybrid Retrieval using 30 controlled product-specification
 queries.
 
 The evaluation covered three AORUS MASTER 16 AM6H
-variants (BZH, BYH, BXH), five supported specification
+variants (BZH, BYH, BXH), five selected specification
 fields, and Chinese and English queries.
 
 Each query had one ground-truth chunk identified by
@@ -298,9 +298,11 @@ supported field aliases, and indexed specification
 categories. These are development-time evaluation cases,
 not an independent user-query test set.
 
-The current field-intent detector explicitly supports
-five specification categories, although the index
-contains 17 categories per product variant.
+The retrieval recall experiment evaluates five selected
+specification categories. The current field-intent detector
+recognizes all 17 indexed specification categories across
+the three product variants. Retrieval quality for the other
+12 categories has not yet been comprehensively evaluated.
 
 These recall results do not measure generated-answer
 accuracy or end-to-end RAG latency.
