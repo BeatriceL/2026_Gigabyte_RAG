@@ -201,6 +201,7 @@ CLI entry point (start both llama.cpp servers first):
 ```bash
 uv run gigabyte-rag "AORUS MASTER 16 AM6H BZH 的重量是多少？"
 uv run gigabyte-rag --stream "What GPU does the BYH model use?"
+```
 
 
 With both servers running:
