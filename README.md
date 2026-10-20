@@ -353,3 +353,12 @@ measurement is not yet available.
 - `benchmark_moderation.md`: measurements and analysis
 - `pyproject.toml`, `uv.lock`: reproducible dependencies
 
+
+## 15. Additional Evaluations
+
+    uv run python tests/check_moderation_adversarial.py
+    uv run python scripts/eval_retrieval.py
+    uv run python scripts/benchmark_guard_overhead.py
+
+The latter two require the embedding server on port 8081.
+See benchmark_moderation.md for results and limitations.
