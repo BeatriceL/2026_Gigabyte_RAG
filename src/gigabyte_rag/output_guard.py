@@ -78,6 +78,12 @@ def moderate_output(answer, evidence):
         if isinstance(item, dict)
     )
 
+    gpu_pat = re.compile(r"\bRTX\s*\d{4}\b", re.I)
+    in_answer = {x.replace(" ", "").upper() for x in gpu_pat.findall(answer)}
+    in_evidence = {x.replace(" ", "").upper() for x in gpu_pat.findall(evidence_text)}
+    if not in_answer.issubset(in_evidence):
+        return {"category": "UNGROUNDED_OUTPUT", "decision": "REFUSE", "reason": "Unsupported GPU model"}
+
     supported_facts = {
         normalize_fact(fact)
         for fact in NUMBER_PATTERN.findall(evidence_text)
