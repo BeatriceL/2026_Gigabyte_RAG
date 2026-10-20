@@ -326,9 +326,9 @@ The system was tested on Apple unified memory.
 Deployment on a discrete 4GB VRAM GPU has not been
 verified.
 
-An NVIDIA Tesla T4 CUDA environment was prepared
-separately, but a completed CUDA inference peak-memory
-measurement is not yet available.
+Tesla T4 CUDA test: 1,453 MiB observed across 163 samples.
+Not a guaranteed peak or full 4GB GPU RAG validation.
+See benchmark_moderation.md Section 13.
 
 ## 13. Known Limitations
 

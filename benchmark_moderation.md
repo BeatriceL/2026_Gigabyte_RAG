@@ -321,3 +321,11 @@ Saved evaluation output:
 - Language: one English question initially received a Chinese answer; after a prompt change, the repeated answer was in English.
 - Scope: these are development-time manual checks, not independent estimates of overall answer accuracy or abstention rate.
 - Evidence: docs/evaluation/abstention_cpu_zh_v1.txt and docs/evaluation/abstention_gpu_en_v1.txt.
+
+## 13. CUDA T4 Verification (2026-10-20)
+
+- GPU: NVIDIA Tesla T4 (15,360 MiB).
+- Engine: llama.cpp b11750; model: Qwen3-1.7B-Q4_K_M.
+- Streaming generation, thinking disabled: TTFT proxy 38.07 ms; total latency 1,484.16 ms; 180 completion tokens; client-estimated throughput 124.47 tokens/s.
+- Separate generation request: maximum observed GPU memory 1,453 MiB across 163 nvidia-smi samples.
+- Limitations: VRAM and latency were measured in separate requests; sampled VRAM is not a guaranteed instantaneous peak; the T4 has more than 4 GiB VRAM; full RAG deployment on a discrete 4 GiB GPU remains unverified.
