@@ -203,7 +203,6 @@ uv run gigabyte-rag "AORUS MASTER 16 AM6H BZH 的重量是多少？"
 uv run gigabyte-rag --stream "What GPU does the BYH model use?"
 ```
 
-
 With both servers running:
 
 ```bash
@@ -378,11 +377,7 @@ See benchmark_moderation.md Section 13.
 The latter two require the embedding server on port 8081.
 See benchmark_moderation.md for results and limitations.
 
-## 16. Streaming CLI Example
-
-    uv run python src/gigabyte_rag/generation.py --stream "What GPU does the AORUS MASTER 16 BYH use?"
-
-## 17. Model Selection and Quantization
+## 16. Model Selection and Quantization
 
 - Generation: Qwen3-1.7B Q4_K_M was selected for compact multilingual local inference and reduced model memory.
 - Embedding: Qwen3-Embedding-0.6B Q8_0 uses higher precision for retrieval; the embedding server runs on CPU to conserve GPU VRAM.
