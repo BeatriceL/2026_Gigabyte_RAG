@@ -1,0 +1,42 @@
+=== RETRIEVAL RECALL@K ===
+Questions: 30
+Models: BZH, BYH, BXH
+Fields: 5
+
+Semantic
+  Recall@1: 12/30 (40.0%)
+  Recall@3: 21/30 (70.0%)
+  Recall@5: 21/30 (70.0%)
+Hybrid
+  Recall@1: 26/30 (86.7%)
+  Recall@3: 30/30 (100.0%)
+  Recall@5: 30/30 (100.0%)
+
+=== RECALL@5 FAILURES ===
+[Semantic] AORUS MASTER 16 AM6H BZH 的顯示卡規格是什麼？
+  Expected: BZH_002
+  Retrieved: ['BZH_016', 'BZH_003', 'BZH_004', 'BZH_014', 'BZH_009']
+[Semantic] AORUS MASTER 16 AM6H BZH 的SSD規格是什麼？
+  Expected: BZH_005
+  Retrieved: ['BZH_004', 'BZH_016', 'BZH_014', 'BZH_012', 'BZH_011']
+[Semantic] What are the SSD specifications of AORUS MASTER 16 AM6H BZH?
+  Expected: BZH_005
+  Retrieved: ['BZH_004', 'BZH_016', 'BZH_011', 'BZH_014', 'BZH_007']
+[Semantic] AORUS MASTER 16 AM6H BYH 的顯示卡規格是什麼？
+  Expected: BYH_019
+  Retrieved: ['BYH_020', 'BYH_033', 'BYH_021', 'BYH_031', 'BYH_027']
+[Semantic] AORUS MASTER 16 AM6H BYH 的SSD規格是什麼？
+  Expected: BYH_022
+  Retrieved: ['BYH_021', 'BYH_033', 'BYH_029', 'BYH_031', 'BYH_028']
+[Semantic] What are the SSD specifications of AORUS MASTER 16 AM6H BYH?
+  Expected: BYH_022
+  Retrieved: ['BYH_021', 'BYH_033', 'BYH_028', 'BYH_031', 'BYH_029']
+[Semantic] AORUS MASTER 16 AM6H BXH 的顯示卡規格是什麼？
+  Expected: BXH_036
+  Retrieved: ['BXH_037', 'BXH_050', 'BXH_038', 'BXH_048', 'BXH_043']
+[Semantic] AORUS MASTER 16 AM6H BXH 的SSD規格是什麼？
+  Expected: BXH_039
+  Retrieved: ['BXH_038', 'BXH_050', 'BXH_046', 'BXH_048', 'BXH_045']
+[Semantic] What are the SSD specifications of AORUS MASTER 16 AM6H BXH?
+  Expected: BXH_039
+  Retrieved: ['BXH_038', 'BXH_050', 'BXH_045', 'BXH_041', 'BXH_048']

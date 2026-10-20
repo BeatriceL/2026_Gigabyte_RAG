@@ -366,3 +366,9 @@ See benchmark_moderation.md for results and limitations.
 ## 16. Streaming CLI Example
 
     uv run python src/gigabyte_rag/generation.py --stream "What GPU does the AORUS MASTER 16 BYH use?"
+
+## 17. Model Selection and Quantization
+
+- Generation: Qwen3-1.7B Q4_K_M was selected for compact multilingual local inference and reduced model memory.
+- Embedding: Qwen3-Embedding-0.6B Q8_0 uses higher precision for retrieval; the embedding server runs on CPU to conserve GPU VRAM.
+- Trade-offs: quantization reduces memory requirements but may affect quality. No quantization ablation was performed, and full RAG deployment on a discrete 4GB GPU remains unverified.

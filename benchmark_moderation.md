@@ -134,8 +134,9 @@ Deployment on a discrete 4GB VRAM GPU remains unverified.
 - Rule-based moderation can miss unseen paraphrases.
 - Qualitative factual grounding is not fully verified.
 - The output guard may incorrectly block valid statements.
-- Streamed tokens are buffered until full output moderation
-  finishes; user-visible token-by-token streaming is disabled.
+- Default mode buffers tokens until full-answer output review.
+- Optional --stream mode reviews completed segments before display.
+- Streaming is segment-based, not token-by-token; displayed text cannot be retracted.
 - Input classification latency excludes audit logging.
 - No directly comparable before/after moderation latency
   experiment has been completed yet.
